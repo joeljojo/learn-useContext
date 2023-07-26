@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Button from "./Components/Button/Button";
+import { ThemeContext } from "./Components/Context/Context";
+import Form from "./Components/Form/Form";
 
 function App() {
+  const [theme, setTheme] = useState("light");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ThemeContext.Provider value={theme}>
+      <Form />
+      {/* Overidding the context, therefore this button shall not change when the dark mode in on*/}
+      <ThemeContext.Provider value="light">
+        <Button
+          onClick={() => {
+            setTheme(theme === "dark" ? "light" : "dark");
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Toggle Theme
+        </Button>
+      </ThemeContext.Provider>
+    </ThemeContext.Provider>
   );
 }
 

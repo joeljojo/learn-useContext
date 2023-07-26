@@ -1,0 +1,22 @@
+.button-light,
+.button-dark {
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  -ms-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+}
+
+.button-light {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.button-dark {
+  background-color: #d9534f;
+  color: #fff;
+}
